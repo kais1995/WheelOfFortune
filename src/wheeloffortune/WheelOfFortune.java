@@ -2,8 +2,8 @@
 * CMPSC 261, Section 1
 * Fall 2016
 * Instructor: Phil O'Connell
-* Student: Phil O'Connell 
-* ID: pxo4
+* Student: Kais Kais
+* ID: kjk5419
 */
 package wheeloffortune;
 
