@@ -128,7 +128,7 @@ public class WheelOfFortune {
       String [] Values = {"$300","$300","$300","$300","$300","$350","$400",
           "$400","$450","$500","$500","$500","$550","$600","$600","$600","$700","$800"
               , "$800","$900","$900","$5000","BANKRUPT", "LOSE A TURN"};
-      Random randomValue = new Random(); // this and the next line are for picking randomly
+      Random randomValue = new Random(); // this and the next line are for picking the value randomly
       int index = randomValue.nextInt(Values.length);
       System.out.println("The wheel landed on:" + Values[index]); // this is for printing what the wheel landed on
 
