@@ -6,10 +6,8 @@
 * ID: kjk5419
 */
 package wheeloffortune;
-
 import java.util.Scanner;
 import java.util.Random;
-
 
 public class WheelOfFortune {
       String play;
@@ -19,8 +17,7 @@ public class WheelOfFortune {
   public static void main(String[] args) {
       play();
   }
-  
-  public static void play(){
+    public static void play(){
       String play;
       String letter;
       
@@ -41,18 +38,15 @@ public class WheelOfFortune {
  
      while ((!"0".equals(play))){   //     if what the user inputs does not equal 0 it will then go to the the next loop
          
-       
          if ("1".equals(play)) { // if the user chooses 1 and spins the wheel it will call the method and spins the wheel and get a random value
          
          play = "You chose to spin the wheel.";
-
          Spin();
          thePuzzle();
 
          letter = scanner.next();
-
             if (letter.matches("[A-z]")){ // this checks and allowes only letters to be inputted
-                System.out.println("You choose the letter:" + letter); // for printing what the use chose
+                System.out.println("You chose the letter:" + letter); // for printing what the use chose
                 play();
                 }
                 else{
@@ -62,11 +56,11 @@ public class WheelOfFortune {
          }     
 
          if ("2".equals(play)){  // when the user chooses 2, he will buy a vowel
-         play = "You choose to buy a vowel.";
+         play = "You chose to buy a vowel.";
 
-         System.out.println("What vowel are you going to buy?:");
+         System.out.println("What vowel will you buy?");
          letter = scanner.next();
-         System.out.println("You choose to buy:" + letter);
+         System.out.println("You chose to buy: " + letter);
      }
 
          if ("3".equals(play)){  // when the user chooses 3, they can try to solve the puzzle
@@ -92,17 +86,17 @@ public class WheelOfFortune {
   
   
     public static void thePuzzle(){ // this method creates the puzzle.
-        //  The below method creates the puzzle. And it waits for the users input. As the user enters a letter the puzzle is unvaild one by one.
+                                    //  The below method creates the puzzle. And it waits for the users input. As the user enters a letter the puzzle is unvaild one by one.
       String secretPhrase = "harambe was a good person"; // this is for the secret phrase
       String guesses = " "; // for the user guesses
       Scanner guess = new Scanner (System.in);
       boolean notSolved = true;
       while (notSolved){
-          notSolved = false;
+          notSolved = false; // for the break statement when the user wins
           for (char secretLetter: secretPhrase.toCharArray()) { // this iterates over the letters
-              if (guesses.indexOf(secretLetter) == -1) { // if the letter does not occur then -1 returns(If the letter is in guesses its going to return index)
-                  System.out.print("_ "); // this is added to put spaces between the words
-                  notSolved = true;
+              if (guesses.indexOf(secretLetter) == -1) { // if the letter does not occur then -1 returns(if the letter is in guesses its going to return index)
+                  System.out.print("_ "); // this is added to get the program to print an _ instead of the letters, and put spaces between the words
+                  notSolved = true; // for the break statement when the user wins
               }
               else{
                   System.out.print(secretLetter);
@@ -114,10 +108,10 @@ public class WheelOfFortune {
       System.out.println("\nPick a Letter");
       String letter = guess.next();
       guesses += letter;
-      
+      play();
       }
         System.out.println("\nCongratulations! You Win!"); // the message the user gets after he wins.
-        System.exit(0);
+        System.exit(0); // to exit the program after the user has won
   }
   
     
@@ -125,9 +119,9 @@ public class WheelOfFortune {
   public static void Spin(){ // this method is for the wheel values,
                              // it  goes through an array and takes a random number from the values and displays it
                             
-      String [] Values = {"$300","$300","$300","$300","$300","$350","$400",
-          "$400","$450","$500","$500","$500","$550","$600","$600","$600","$700","$800"
-              , "$800","$900","$900","$5000","BANKRUPT", "LOSE A TURN"};
+      String [] Values = {" $300"," $300"," $300"," $300"," $300"," $350"," $400", // these are the values
+          " $400"," $450"," $500"," $500"," $500"," $550"," $600"," $600"," $600"," $700"," $800"
+              , " $800"," $900"," $900"," $5000"," BANKRUPT", " LOSE A TURN"};
       Random randomValue = new Random(); // this and the next line are for picking the value randomly
       int index = randomValue.nextInt(Values.length);
       System.out.println("The wheel landed on:" + Values[index]); // this is for printing what the wheel landed on
