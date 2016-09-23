@@ -5,6 +5,8 @@
 * Student: Kais Kais
 * ID: kjk5419
 */
+
+
 package wheeloffortune;
 import java.util.Scanner;
 import java.util.Random;
@@ -71,7 +73,7 @@ public static void main(String[] args) {
      }
           // if the user inputs 8, this will show the puzzle
             String secretPhrase = "the quick brown fox jumps over the lazy dog";
-           if ("8".equals(play)) // when the user chooses 4, the game quits
+           if ("8".equals(play))
          {
              System.out.println(secretPhrase);
                          
@@ -90,15 +92,13 @@ public static void main(String[] args) {
   
 }
      
-  
-  
-  
+    
     public static void thePuzzle(){ // this method creates the puzzle.
                                     //  The below method creates the puzzle. And it waits for the users input. As the user enters a letter the puzzle is unvaild one by one.
       String secretPhrase = "the quick brown fox jumps over the lazy dog"; // this is for the secret phrase
       String guesses = " "; // for the user guesses
       Scanner guess = new Scanner (System.in);
-      boolean notSolved = true;
+      boolean notSolved = true; // created a boolean for if the phrase is fully solved, it will break and trigger a message.
       while (notSolved){
           notSolved = false; // for the break statement when the user wins
           for (char secretLetter: secretPhrase.toCharArray()) { // this iterates over the letters
@@ -107,7 +107,7 @@ public static void main(String[] args) {
                   notSolved = true; // for the break statement when the user wins
               }
               else{
-                  System.out.print(secretLetter);
+                  System.out.print(secretLetter); 
               }
           }
           if (! notSolved ) {break;}  // if the user solved the puzzle, it breaks and proceeds to send a letter saying "Congratulations"
@@ -128,7 +128,7 @@ public static void main(String[] args) {
   public static void Spin(){ // this method is for the wheel values,
                              // it  goes through an array and takes a random number from the values and displays it
                             
-      String [] Values = {" $300"," $300"," $300"," $300"," $300"," $350"," $400", // these are the values
+      String [] Values = {" $300"," $300"," $300"," $300"," $300"," $350"," $400", // these are the values for the wheel
           " $400"," $450"," $500"," $500"," $500"," $550"," $600"," $600"," $600"," $700"," $800"
               , " $800"," $900"," $900"," $5000"," BANKRUPT", " LOSE A TURN"};
       Random randomValue = new Random(); // this and the next line are for picking the value randomly
