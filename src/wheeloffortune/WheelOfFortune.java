@@ -78,7 +78,7 @@ public static void main(String[] args) {
             int num; 
         
            Scanner in = new Scanner(System.in);
-        System.out.println("Press anything to go back to menu.");
+        System.out.println("Press any number to go back to menu.");
         num = in.nextInt();
      
              play();
