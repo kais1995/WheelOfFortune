@@ -6,15 +6,14 @@
 * ID: kjk5419
 */
 
-
 package wheeloffortune;
 import java.util.Scanner;
-import java.util.Random;
+import java.util.Random;    // this is added for import the Random values method.
 
 public class WheelOfFortune {
 
 public static void main(String[] args) {
-      play();
+      play(); // this function is for using the play method in the next line(it is what calls/starts the game)
   }
     public static void play(){
       String play;
@@ -68,9 +67,16 @@ public static void main(String[] args) {
      }
 
          if ("3".equals(play)){  // when the user chooses 3, they can try to solve the puzzle
-         play = "Try solving the puzzle.";
+             System.out.println("Try solving the puzzle.");
          
      }
+         
+          if ("4".equals(play)){  // when the user chooses 4, the game quits
+              System.out.println("You quit the game.");
+              System.exit(0);
+         
+     }
+         
           // if the user inputs 8, this will show the puzzle
             String secretPhrase = "the quick brown fox jumps over the lazy dog";
            if ("8".equals(play))
@@ -80,18 +86,13 @@ public static void main(String[] args) {
             int num; 
         
            Scanner in = new Scanner(System.in);
-        System.out.println("Press any number to go back to menu.");
-        num = in.nextInt();
-     
-             play();
-           
-     }
-       
+        System.out.println("Enter any number to go back to menu.");
+        num = in.nextInt();     
+             play(); // after the user types any number, it will go back to the lopp from here            
+     }       
          play();
-     }
-  
-}
-     
+     }  
+}     
     
     public static void thePuzzle(){ // this method creates the puzzle.
                                     //  The below method creates the puzzle. And it waits for the users input. As the user enters a letter the puzzle is unvaild one by one.
