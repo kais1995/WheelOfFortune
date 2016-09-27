@@ -168,6 +168,7 @@ public class WheelOfFortune {
 
   /*
   * These are the wedges that are part of the wheel.
+  * There are 24.  Some values can appear more than once
   */
   private static final List<String> _wedges = Arrays.asList(
       /* 01 */"$5000",
@@ -197,7 +198,7 @@ public class WheelOfFortune {
   );
 
   /*
-  * The number of wedges will not change
+  * The number of wedges will not change throughout the game
   * We can cache the value so we're not calling .size() over and over
   */
   private static final int _wedgeCount = _wedges.size();
@@ -212,24 +213,23 @@ public class WheelOfFortune {
 
   // The menu choices
   private static final List<String> _menuChoices = Arrays.asList(
-      "1. Spin the wheel"   ,
-      "2. Buy a vowel"      ,
-      "3. Solve the puzzle" ,
-      "4. Quit the game"    ,
-      ""                    , 
-      ""                    , 
-      ""        
+      "1. Spin the wheel",
+      "2. Buy a vowel",
+      "3. Solve the puzzle",
+      "4. Quit the game",
+      "", // 5 possibly used in the future
+      "", // 6 possibly used in the future
+      "", // 7 possibly used in the future
+      "8. Toggle puzzle reveal",
+      "9. Test letter input"
   );
-  
   private static final int _quitChoiceNumber = 4;
 
   // The different puzzles to choose from
   private static final List<String> _puzzles = Arrays.asList(
-//      "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG",
-//      "PENN STATE ABINGTON",
-//      "INFORMATION SCIENCES AND TECHNOLOGY",
-      "1"
-//      "HARAMBE DIED IN VAIN"
+      "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG",
+      "PENN STATE ABINGTON",
+      "INFORMATION SCIENCES AND TECHNOLOGY"
   );
 
   /*
@@ -238,7 +238,17 @@ public class WheelOfFortune {
   */
   private static final int _puzzlesCount = _puzzles.size();
 
-  private static Map<Character, Boolean> guessedLetters = new HashMap<>();  
+  /*
+  * We will store the guessed letters in a hash map.
+  * The "key" will be the character that was guessed
+  * The "value" will be true/false
+  *
+  * Actually, the "value" aspect of this is not relevant.
+  * Just the fact that a letter appears in the map as a key, is enough to imply
+  * it was guessed.
+  */
+  private static Map<Character, Boolean> guessedLetters = new HashMap<>();
+
   /*
   * Given a puzzle, return a masked version, with hidden letters
   */
@@ -287,9 +297,6 @@ public class WheelOfFortune {
     if ((choice < 1) || (choice > _menuChoices.size())) {
       return false;
     }
-    
-     
-          
 
     // Subtrace 1 because arrays/lists are zero-based
     int index = choice - 1;
@@ -314,14 +321,11 @@ public class WheelOfFortune {
         letter = Character.toUpperCase(line.charAt(0));
         if (!Character.isLetter(letter)) {
           System.out.println("That is not a letter");
-        } 
-        
-        
-        System.out.println("\nCongratulations! You Win!"); // the message the user gets after he wins.
-//        System.exit(0); // to exit the program after the user has won
-        System.exit(0);
+        } else {
+          // Will exit the loop
+          finished = true;
+        }
       }
-      
     }
 
     return letter;
@@ -389,6 +393,13 @@ public class WheelOfFortune {
           guessedLetters.put(letter, true);
           break;
 
+        case 8: // Toggle reveal letters
+          revealLetters = !revealLetters;
+          break;
+
+        case 9: // Test to read in a letter from the keyboard
+          System.out.println("Your letter is: " + inputLetter());
+          break;
       }
     }
   }
