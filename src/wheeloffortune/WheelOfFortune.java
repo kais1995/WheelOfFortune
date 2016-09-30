@@ -1,7 +1,10 @@
 /*
-*
- @author kjk5419, Kais Kais  
-*
+* CMPSC 261, Section 1
+* Fall 2016
+* Instructor: Phil O'Connell
+* TODO: DON'T FORGET TO PUT YOUR NAME AND ID
+* Student: Kais Kais.
+* ID: kjk5419
 */
 
 package wheeloffortune;
